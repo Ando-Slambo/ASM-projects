@@ -3,7 +3,7 @@
 ;   Created Date    :   2022-08-19
 ;   Last Update     :   2022-08-19
 ;   Author          :   Colton Thiede
-;   License         ;   MIT
+;   License         ;   GNU GPLv3.0
 ;   Description     :   Converts a decimal or hexadecimal number to it's ASCII equivalent 
 ;                       and prints it to terminal. This currently does not have an input.
 ;
