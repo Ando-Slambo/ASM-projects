@@ -5,7 +5,7 @@
 ;   Author          :   Colton Thiede
 ;   License         ;   MIT
 ;   Description     :   Converts a decimal or hexadecimal number to it's ASCII equivalent 
-;                       and prints it to terminal
+;                       and prints it to terminal. This currently does not have an input.
 ;
 ;   Build using these commands:
 ;       nasm -f elf32 -g -F stabs converter.asm
@@ -13,8 +13,8 @@
 ;
 
 SECTION .data
-    crap: db "E"                    ;crap data to make .data section actually exist
-    output: db ""                   ;empty string we'll be writing hex to
+    output: db 0                    ;must initialize the beginning of our string with
+                                    ;an empty value so the .data section actually exists
 
 SECTION .bss
 
@@ -24,7 +24,7 @@ _start:
     nop
     
     ;setup registers
-    mov eax, 40h                     ;put the number to be converted into eax
+    mov eax, 40h                    ;put the number to be converted into eax
     mov ebp, output                 ;put output string into pointer
     xor ecx, ecx                    ;zero-out ecx to use as offset for ebp
     mov ebx, 10                     ;put divisor into ebx
