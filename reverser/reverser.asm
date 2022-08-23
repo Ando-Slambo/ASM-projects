@@ -3,7 +3,7 @@
 ;   Created Date    :   2022-08-18
 ;   Last Update     :   2022-08-18
 ;   Author          :   Colton Thiede
-;   License         :   MIT
+;   License         :   GNU GPLv3.0
 ;   Description     :   Takes the specified string in source, print it to terminal
 ;                       along with it's reversed string.
 ;
