@@ -1,7 +1,7 @@
 ;   Executable name :   converter  
 ;   Version         :   0.1
-;   Created Date    :   2022-08-19
-;   Last Update     :   2022-08-19
+;   Created Date    :   2022-08-22
+;   Last Update     :   2022-08-22
 ;   Author          :   Colton Thiede
 ;   License         ;   GNU GPLv3.0
 ;   Description     :   Converts a decimal or hexadecimal number to it's ASCII equivalent 
