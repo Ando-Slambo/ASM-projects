@@ -1,13 +1,12 @@
 ;   Executable name     :       fizzbuzz
-;   Created date        :       2022-08-25
-;   Updated date        :       2022-08-25
+;   Created date        :       2022-08-26
+;   Updated date        :       2022-08-26
 ;   Author              :       Colton Thiede 
 ;   License             :       GNU GPLv3.0
 ;   Description         :       Takes 2 numbers and cycles through a specified amount of numbers,
 ;                               printing "Fizz" for numbers divisible by the first, "Buzz" for
 ;                               numbers divisible by the second, "FizzBuzz" for numbers divisible
-;                               by both, or the number itself if neither are divisible. Can only
-;                               print up to 9999 numbers.
+;                               by both, or the number itself if neither are divisible.
 ;
 ;   Build with these commands:
 ;       nasm -f elf32 -g -F stabs fizzbuzz.asm
