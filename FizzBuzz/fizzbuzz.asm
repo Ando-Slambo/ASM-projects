@@ -20,17 +20,14 @@ SECTION .data
     ;setup numbers for generating fizzbuzz
     num_one equ 3					;first number
     num_two equ 5					;second number
-    print_len equ 999				;print 100 numbers
+    print_len equ 1000000			;print 1 million numbers
     
     ;setup strings
     FIZZ equ 5A5A4946h				;'FIZZ'
     BUZZ equ 5A5A5542h				;'BUZZ'
     msg_len equ 4					;length of fizz and buzz
     
-    ;setup for printing
     num_last: dd 0					;current number the loop is working on
-    ;string_len: db 0				;empty value that will hold the length of the string
-    ;string: db 0					;empty string for writing ASCII chars to
     
 SECTION .text
 global _start
@@ -38,8 +35,6 @@ _start:
 	xor eax, eax					;zero-out eax
 	mov ebp, string					;put start of string into pointer
     
-	mov eax, 97		;TEMPORARY LINES FOR DEBUGGING
-	mov [num_last], eax
     Loop:
 		xor ecx, ecx					;zero-out ecx to use as offset for pointer
         mov eax, [num_last]				;mov last number processed into eax
@@ -83,7 +78,6 @@ _start:
 	Print_Num:
 		;setup registers for converting number to ASCII
 		mov eax, [num_last]				;num_last is actually the currently working number, load into eax 
-		xor ecx, ecx					;zero-out ecx to use as offset for ebp
 		mov ebx, 10						;put divisor into ebx
 		
 		converter:
@@ -101,7 +95,7 @@ _start:
 		add eax, 30h					;convert to ASCII char 
 		mov [ebp], eax					;put char into the beginning of the char array
 	
-		;pop pushed chars off the stack into our string
+		;pop pushed chars off the stack into the string
 		mov edx, 1					;use edx as our pointer offset (string starts with 1 char in it so we must start with 1 in edx) 	
 		string_constructor:
 			pop eax							;pop char to eax
