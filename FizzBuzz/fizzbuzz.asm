@@ -1,6 +1,6 @@
 ;   Executable name     :       fizzbuzz
 ;   Created date        :       2022-08-26
-;   Updated date        :       2022-08-26
+;   Updated date        :       2022-08-28
 ;   Author              :       Colton Thiede 
 ;   License             :       GNU GPLv3.0
 ;   Description         :       Takes 2 numbers and cycles through a specified amount of numbers,
