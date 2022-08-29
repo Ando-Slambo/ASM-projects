@@ -20,7 +20,7 @@ SECTION .data
     ;setup numbers for generating fizzbuzz
     num_one equ 3					;first number
     num_two equ 5					;second number
-    print_len equ 100				;print 100 numbers
+    print_len equ 999				;print 100 numbers
     
     ;setup strings
     FIZZ equ 5A5A4946h				;'FIZZ'
@@ -28,7 +28,7 @@ SECTION .data
     msg_len equ 4					;length of fizz and buzz
     
     ;setup for printing
-    num_last: db 0					;current number the loop is working on
+    num_last: dd 0					;current number the loop is working on
     ;string_len: db 0				;empty value that will hold the length of the string
     ;string: db 0					;empty string for writing ASCII chars to
     
@@ -38,6 +38,8 @@ _start:
 	xor eax, eax					;zero-out eax
 	mov ebp, string					;put start of string into pointer
     
+	mov eax, 97		;TEMPORARY LINES FOR DEBUGGING
+	mov [num_last], eax
     Loop:
 		xor ecx, ecx					;zero-out ecx to use as offset for pointer
         mov eax, [num_last]				;mov last number processed into eax
@@ -83,17 +85,17 @@ _start:
 		mov eax, [num_last]				;num_last is actually the currently working number, load into eax 
 		xor ecx, ecx					;zero-out ecx to use as offset for ebp
 		mov ebx, 10						;put divisor into ebx
-		xor edx, edx					;zero out edx so it doesn't mess with division
 		
-		div ebx							;eax / ebx = quotient in eax, remainder in edx
+		converter:
+			xor edx, edx					;zero out edx so it doesn't mess with division
+			div ebx							;eax / ebx = quotient in eax, remainder in edx
 		
-		;convert to ASCII and push to stack
-		add edx, 30h					;convert remainder to it's ASCII char
-		push edx						;push char onto the stack
-		inc ecx							;inc ecx to keep track of the length of the string (at the end ecx will be one less than the length of the string)
-		
-		cmp eax, 9						;compare eax to 9
-		jg Print_Num					;restart conversion loop if eax is greater than 9 else fall through to append quotient to string
+			;convert to ASCII and push to stack
+			add edx, 30h					;convert remainder to it's ASCII char
+			push edx						;push char onto the stack
+			inc ecx							;inc ecx to keep track of the length of the string (at the end ecx will be one less than the length of the string)
+			cmp eax, 9						;compare eax to 9
+			ja converter					;restart conversion loop if eax is greater than 9 else fall through to append quotient to string
 		
 		;convert to ASCII and append to string
 		add eax, 30h					;convert to ASCII char 
