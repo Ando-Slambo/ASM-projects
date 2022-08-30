@@ -3,7 +3,10 @@
 ;   Updated date        :       2022-08-29
 ;   Author              :       Colton Thiede 
 ;   License             :       GNU GPLv3.0
-;   Description         :       An attempt at writing FizzBuzz without dividing the numbers except for ASCII conversion
+;   Description         :       An attempt at writing FizzBuzz without dividing the numbers except for ASCII conversion. It's a bit of a mess
+;				and it's about 30% slower than the original FizzBuzz but I'm still glad I wrote it. It took a considerable
+;				amount of brain power to plan and an incredible amount to debug and at the end of the day it works as intended.
+;				Lesson learned: it's better to use slower instructions than to juggle data to and from memory.
 ;
 ;   Build with these commands:
 ;       nasm -f elf32 -g -F stabs fizzbuzz2.asm
