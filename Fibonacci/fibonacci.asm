@@ -17,7 +17,7 @@ SECTION .data
 	error_msg_len equ $-error_msg
 
 SECTION .bss
-    output: resb 20				;reserve 11 bytes for printing strings (11 bytes is enough for max 32-bit integer + \n) 
+    output: resb 11				;reserve 11 bytes for printing strings (11 bytes is enough for max 32-bit integer + \n) 
 
 SECTION .text
 global _start
